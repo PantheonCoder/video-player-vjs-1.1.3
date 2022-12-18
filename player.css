@@ -1,0 +1,230 @@
+body{
+
+display:flex;font-family: Trebuchet MS;
+width: 100vw;
+min-height: 100vh;flex-direction: column;background: #fff;
+align-items:center;position: relative;
+justify-content:space-around;
+padding:0;
+margin:0}
+
+
+.video_player{
+justify-content: center;flex-direction: column;
+align-items: center;
+width:30rem;display: none;
+position: relative;
+height:30rem;overflow: hidden;
+background:black;
+margin: 3rem 0 ;
+}
+.video_player.active{
+  display:flex;
+  
+}
+.video_player.full{
+  width: 100vw;
+  height: 100vh;
+  
+ 
+}
+
+.play_icon{
+  position:absolute;
+  width: 4rem;
+  height: 4rem;display: grid;
+  border-radius: 50%;place-items:  center;transition: 100ms ease;
+  background: rgba(0,0,0,0.4);opacity: 0;
+}
+
+
+
+.sb,.sv{
+position: absolute;
+  width: 5rem;align-items: center;justify-content: space-between;
+  height: 8rem;display: none;
+  background: rgba(0,0,0,0.4);
+  opacity: 0;transition: 200ms ease;
+  flex-direction: column;
+  padding: .2rem 0;
+}
+.sb{
+  left:0;
+}
+.sv{
+  right:0;
+}
+
+.sb.active,.sv.active{
+  opacity: 1;
+  display: flex;
+}
+.sb #minus,.sb #plus,.sv #minus,.sv #plus{
+  place-items: center;
+  width: 2rem;border: 1px solid grey;
+  height: 2rem; display: grid;
+  border-radius: 50%;box-sizing: border-box;
+}
+
+#updatevalue{
+  font-size: .6rem;
+  
+  height: 40%;display: flex;
+  width: 90%;
+  flex-direction: column;align-items: center;justify-content: space-evenly;
+}
+
+
+.play_icon.active{
+  opacity: 1;
+}
+video{
+height:100% ;
+filter: brightness(100%);
+width:100%;
+aspect-ratio: 3/4;
+}
+
+
+
+.visible{
+  height: 3rem;
+  align-items: center;justify-content: space-between;width: 100%;
+  display: flex;flex-direction: column;
+}
+#currenttime,#duration{
+  width: auto;align-items: center;
+  height:100%;justify-content: center;padding: .1rem;font-size: .6rem;
+  display: flex;
+}
+#showmenu{
+box-sizing: border-box;padding: .2rem;
+  font-size: 1rem;
+}
+.wrapper{
+  box-sizing: border-box;padding: 0 .2rem;
+  width: 100%;justify-content: space-between;display: flex;
+  height: 50%;
+}
+.videotime{
+box-sizing: border-box;padding: 0 .2rem;
+  width: 40%;justify-content: space-between;display: flex;
+  height: 100%;
+  
+}
+
+
+.visible #range{
+  width: 98%;
+  height: 20%;display:flex;
+  background: rgba(0,0,0,.4);
+ position: relative;border-radius: .5rem;margin-top: 1rem;
+  justify-content: center;
+  align-self: center;
+}
+
+
+#range::before{
+  width: var(--auto,0%);content:"";
+height: 100%;position: absolute;
+background:gold;left: 0;border-radius: .5rem;
+}
+
+
+.controls{
+  display: flex;background: ;
+  width: 100%;left:0;bottom: 0;
+background: rgba(0,0,0,0.6);
+  flex-direction: column;transition: 500ms ease;transform: translateY(4rem);position: absolute;z-index: 5;
+  align-items: center;justify-content: space-between;
+height: auto;
+}
+.controls.active{
+  transform: translateY(0);
+}
+.video_player.full .controls.active{
+  transform: translateY(0);
+  
+  
+}
+
+
+.video_player.full .controls{
+  transform: translateY(60%);
+  
+  
+}
+
+
+
+.main_controls{
+  height: 3rem;margin-bottom:5%;
+  display: flex;justify-content: space-around;align-items: center;
+  width:100%;
+  
+ 
+}
+.main_controls span{
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;display:grid;
+  background: rgba(0,0,0,0.4);
+  place-items: center;
+}
+
+i{
+  font-size: 1rem;color: #fff;
+}
+
+.main_controls  .tool.preference{
+
+  
+}
+
+  .tool.preference i{
+  color: gold;
+}
+
+
+
+
+.playBack{
+  position:absolute;
+  height: 6rem;display:none;
+ z-index: 10;background: rgba(0,0,0,.5);justify-content: space-around;transition: 300ms ease;
+  width: 15rem;align-items: center;
+}
+.playBack.active{
+  
+  
+  display:flex;
+}
+
+.playBack span{
+  place-items: center;
+  width: 2rem;border: 1px solid grey;
+  height: 2rem; display: grid;
+  border-radius: 50%;box-sizing: border-box;
+  font-size: .6rem;
+  
+}
+
+
+
+@media screen and 
+(max-width:500px){
+  .video_player{
+    
+    height: 50vh;
+    width: 100%;
+  }
+  .controls{
+    height: 40%;
+    
+  }
+  
+ .visible #range{
+   margin: 0;
+ }
+}
+
